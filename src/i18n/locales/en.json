@@ -1,0 +1,12 @@
+{
+  "Spam": "Spam",
+  "compose": "Compose",
+  "compose.title": "Compose Component",
+  "drafts": "Drafts",
+  "drafts.title": "Drafts Component",
+  "inbox": "Inbox",
+  "inbox.title": "Inbox Component",
+  "spam.title": "Spam Component",
+  "trash": "Trash",
+  "trash.title": "Trash Component"
+}

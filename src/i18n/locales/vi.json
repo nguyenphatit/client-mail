@@ -1,0 +1,12 @@
+{
+  "Spam": "Thư rác",
+  "compose": "Soạn thư",
+  "compose.title": "Đây là Compose Component",
+  "drafts": "Thư nháp",
+  "drafts.title": "Đây là Drafts Component",
+  "inbox": "Hộp thư",
+  "inbox.title": "Đây là Inbox Component",
+  "spam.title": "Đây là Spam Component",
+  "trash": "Thư đã xoá",
+  "trash.title": "Đây là Trash Component"
+}
