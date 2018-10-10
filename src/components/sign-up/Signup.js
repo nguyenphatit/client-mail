@@ -45,23 +45,6 @@ class Signup extends Component {
         this.props.onSubmit(user);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.auth.isAuthenticated) {
-            this.props.history.push('/')
-        }
-        if (nextProps.errors) {
-            this.setState({
-                errors: nextProps.errors
-            });
-        }
-    }
-
-    componentDidMount() {
-        if (this.props.auth.isAuthenticated) {
-            this.props.history.push('/');
-        }
-    }
-
     render() {
         const { errors } = this.props;
         return (
@@ -69,6 +52,7 @@ class Signup extends Component {
                 <Grid container spacing={16}>
                     <Grid item xs={12} sm container>
                         <ValidatorForm
+                            className="form"
                             ref="form"
                             onSubmit={this.onSubmit}
                             onError={errors => console.log(errors)}
@@ -117,6 +101,10 @@ class Signup extends Component {
                                         validators={['required', 'isEmail']}
                                         errorMessages={['This field is required', 'Email is not valid']}
                                     />
+                                    <br/>
+                                    <Typography variant="body2" gutterBottom color="secondary">
+                                        {errors ? errors.email : ''}
+                                    </Typography>
                                     <TextValidator
                                         id="password"
                                         label="Password"
@@ -131,6 +119,7 @@ class Signup extends Component {
                                         validators={['required']}
                                         errorMessages={['This field is required']}
                                     />
+                                    <br/>
                                     <Typography variant="body2" gutterBottom color="secondary">
                                         {errors ? errors.password : ''}
                                     </Typography>
@@ -148,6 +137,7 @@ class Signup extends Component {
                                         validators={['required']}
                                         errorMessages={['This field is required']}
                                     />
+                                    <br/>
                                     <Typography variant="body2" gutterBottom color="secondary">
                                         {errors ? errors.password_confirm : ''}
                                     </Typography>

@@ -1,11 +1,11 @@
-import { GET_ERRORS, SET_CURRENT_USER } from './../constants/ActionType';
+import { GET_ERRORS, SET_CURRENT_USER, AUTHENTICATE } from './../constants/ActionType';
 import NodeAPI from './../utils/node-api';
 import setAuthToken from './../setAuthToken';
 import jwt_decode from 'jwt-decode';
 
 export const registerUser = (user, history) => dispatch => {
-    NodeAPI('POST', 'api/users/register', user)
-        .then(res => history.push('/login'))
+    NodeAPI('POST', '/api/users/register', user)
+        .then(res => window.location.href = '/login')
         .catch(err => {
             dispatch({
                 type: GET_ERRORS,
@@ -15,7 +15,7 @@ export const registerUser = (user, history) => dispatch => {
 }
 
 export const loginUser = user => dispatch => {
-    NodeAPI('POST', 'api/users/login', user)
+    NodeAPI('POST', '/api/users/login', user)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
@@ -42,5 +42,22 @@ export const logoutUser = history => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
     dispatch(setCurrentUser({}));
-    history.push('/login');
+    window.location.href = '/login'
+}
+
+export const authenticate = () => dispatch => {
+    NodeAPI('GET', '/api/users/me', null)
+        .then(res => {
+            setAuthToken(localStorage.setItem('jwtToken'));
+            dispatch({
+                type: AUTHENTICATE,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
 }

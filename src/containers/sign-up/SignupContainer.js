@@ -5,8 +5,32 @@ import { registerUser } from './../../actions/index';
 
 class SignupContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            errors: {}
+        }
+    }
+    
     onSubmit = user => {
         this.props.signupUser(user)
+    }
+
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated) {
+            window.location.href = '/';
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+            window.location.href = '/';
+        }
+        if (nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
     }
 
     render() {

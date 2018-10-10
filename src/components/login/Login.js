@@ -2,7 +2,23 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { injectIntl, defineMessages } from "react-intl";
 import './Login.scss';
+
+const messages = defineMessages({
+    title: {
+        id: 'login.title',
+        defaultMessage: 'Log in'
+    },
+    signup: {
+        id: 'login.signup',
+        defaultMessage: 'Registry now!'
+    },
+    password: {
+        id: 'login.password',
+        defaultMessage: 'Password'
+    }
+})
 
 class Login extends Component {
     constructor(props) {
@@ -27,25 +43,8 @@ class Login extends Component {
         this.props.onSubmit(this.state);
     }
 
-    componentDidMount() {
-        if (this.props.auth.isAuthenticated) {
-            this.props.history.push('/');
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.auth.isAuthenticated) {
-            this.props.history.push('/')
-        }
-        if (nextProps.errors) {
-            this.setState({
-                errors: nextProps.errors
-            });
-        }
-    }
-
-
     render() {
+        const { intl: { formatMessage } } = this.props;
         return (
             <div className="Login">
                 <span className="span-line"></span>
@@ -59,7 +58,7 @@ class Login extends Component {
                         onError={errors => console.log(errors)}
                     >
                         <Typography variant="h3" gutterBottom>
-                            Login
+                            {formatMessage(messages.title)}
                         </Typography>
                         <TextValidator
                             id="email"
@@ -76,7 +75,7 @@ class Login extends Component {
                         />
                         <TextValidator
                             id="password"
-                            label="Password"
+                            label={formatMessage(messages.password)}
                             margin="normal"
                             type="password"
                             className="form-control"
@@ -89,7 +88,7 @@ class Login extends Component {
                             errorMessages={['This field is required']}
                         />
                         <div>
-                            <button type="submit" className="btn-login">Login</button>
+                            <button type="submit" className="btn-login">{formatMessage(messages.title)}</button>
                         </div>
                     </ValidatorForm>
                     <div className="Login__footer">
@@ -101,4 +100,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default injectIntl(Login);
