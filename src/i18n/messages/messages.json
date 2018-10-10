@@ -1,0 +1,52 @@
+[
+  {
+    "id": "compose.title",
+    "defaultMessage": "Compose Component",
+    "filepath": "src/components/compose/Compose.js"
+  },
+  {
+    "id": "drafts.title",
+    "defaultMessage": "Drafts Component",
+    "filepath": "src/components/drafts/Drafts.js"
+  },
+  {
+    "id": "inbox.title",
+    "defaultMessage": "Inbox Component",
+    "filepath": "src/components/inbox/Inbox.js"
+  },
+  {
+    "id": "spam.title",
+    "defaultMessage": "Spam Component",
+    "filepath": "src/components/spam/Spam.js"
+  },
+  {
+    "id": "trash.title",
+    "defaultMessage": "Trash Component",
+    "filepath": "src/components/trash/Trash.js"
+  },
+  {
+    "id": "compose",
+    "defaultMessage": "Compose",
+    "filepath": "src/layouts/dashboard/Dashboard.js"
+  },
+  {
+    "id": "inbox",
+    "defaultMessage": "Inbox",
+    "filepath": "src/layouts/dashboard/Dashboard.js"
+  },
+  {
+    "id": "drafts",
+    "defaultMessage": "Drafts",
+    "filepath": "src/layouts/dashboard/Dashboard.js"
+  },
+  {
+    "id": "trash",
+    "defaultMessage": "Trash",
+    "filepath": "src/layouts/dashboard/Dashboard.js"
+  },
+  {
+    "id": "Spam",
+    "defaultMessage": "Spam",
+    "filepath": "src/layouts/dashboard/Dashboard.js"
+  }
+]
