@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import Dashboard from '../../components/dashboard/Dashboard';
 import { connect } from 'react-redux';
-import { logoutUser } from './../../actions/authentication';
+import { logoutUser, authenticate } from './../../actions/authentication';
 
 class DashboardContainer extends Component {
-    
+
     onLogout = history => {
         this.props.onLogout(history);
     }
 
+    componentDidMount() {
+        if (!this.props.auth.isAuthenticated) {
+            window.location.href = '/login';
+        }
+    }
+
     render() {
-        const {isAuthenticated, user} = this.props.auth;
+        this.props.authenticate();
         return (
-            <Dashboard isAuthenticated={isAuthenticated} user={user} onLogout={this.onLogout} />
+            <Dashboard 
+                onLogout={this.onLogout}
+            >
+                {this.props.children}
+            </Dashboard>
         );
     }
 }
@@ -25,6 +35,9 @@ const mapDispatchToProp = (dispatch, props) => {
     return {
         onLogout: history => {
             dispatch(logoutUser(history))
+        },
+        authenticate: () => {
+            dispatch(authenticate())
         }
     }
 }

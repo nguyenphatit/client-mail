@@ -1,11 +1,14 @@
 {
   "Spam": "Thư rác",
-  "compose": "Soạn thư",
+  "compose": "Soạn thư mới",
   "compose.title": "Đây là Compose Component",
   "drafts": "Thư nháp",
   "drafts.title": "Đây là Drafts Component",
   "inbox": "Hộp thư",
   "inbox.title": "Đây là Inbox Component",
+  "login.password": "Mật khẩu",
+  "login.signup": "Đăng ký ngay!",
+  "login.title": "Đăng nhập",
   "spam.title": "Đây là Spam Component",
   "trash": "Thư đã xoá",
   "trash.title": "Đây là Trash Component"

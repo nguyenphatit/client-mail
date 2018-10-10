@@ -5,10 +5,6 @@ import InboxContainer from './containers/inbox/InboxContainer';
 import DraftsContainer from './containers/drafts/DraftsContainer';
 import TrashContainer from './containers/trash/Trash';
 import SpamContainer from './containers/spam/SpamContainer';
-import LoginContainer from './containers/login/LoginContainer';
-import NotFound from './components/not-found/NotFound';
-import SignupContainer from './containers/sign-up/SignupContainer';
-import SimpleFormExample from './components/simpleForm/SimpleFormExample';
 
 const routes = [
     {
@@ -31,23 +27,24 @@ const routes = [
         path: '/spam',
         exact: true,
         main: () => <Dashboard><SpamContainer /></Dashboard>
-    }, {
-        path: '/signup',
-        exact: false,
-        main: () => <SignupContainer />
-    }, {
-        path: '/login',
-        exact: false,
-        main: () => <LoginContainer />
-    }, {
-        path: '/simple',
-        exact: false,
-        main: () => <SimpleFormExample />
-    }, {
-        path: '',
-        exact: false,
-        main: () => <NotFound />
-    }
+    },
+    //  {
+    //     path: '/signup',
+    //     exact: false,
+    //     main: () => <SignupContainer />
+    // }, {
+    //     path: '/login',
+    //     exact: false,
+    //     main: () => <LoginContainer />
+    // }, {
+    //     path: '/simple',
+    //     exact: false,
+    //     main: () => <SimpleFormExample />
+    // }, {
+    //     path: '',
+    //     exact: false,
+    //     main: () => <NotFound />
+    // }
 ]
 
 export default routes;

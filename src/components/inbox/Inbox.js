@@ -10,7 +10,7 @@ import { injectIntl, defineMessages } from "react-intl";
 const messages = defineMessages({
     title: {
         id: 'inbox.title',
-        defaultMessage: 'Inbox Component'
+        defaultMessage: 'This is Inbox Component'
     }
 })
 class Inbox extends Component {

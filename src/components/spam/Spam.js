@@ -4,7 +4,7 @@ import { injectIntl, defineMessages } from "react-intl";
 const messages = defineMessages({
     title: {
         id: 'spam.title',
-        defaultMessage: 'Spam Component'
+        defaultMessage: 'This is Spam Component'
     }
 })
 

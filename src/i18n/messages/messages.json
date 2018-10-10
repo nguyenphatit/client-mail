@@ -1,52 +1,67 @@
 [
   {
     "id": "compose.title",
-    "defaultMessage": "Compose Component",
+    "defaultMessage": "This is Compose Component",
     "filepath": "src/components/compose/Compose.js"
-  },
-  {
-    "id": "drafts.title",
-    "defaultMessage": "Drafts Component",
-    "filepath": "src/components/drafts/Drafts.js"
-  },
-  {
-    "id": "inbox.title",
-    "defaultMessage": "Inbox Component",
-    "filepath": "src/components/inbox/Inbox.js"
-  },
-  {
-    "id": "spam.title",
-    "defaultMessage": "Spam Component",
-    "filepath": "src/components/spam/Spam.js"
-  },
-  {
-    "id": "trash.title",
-    "defaultMessage": "Trash Component",
-    "filepath": "src/components/trash/Trash.js"
   },
   {
     "id": "compose",
     "defaultMessage": "Compose",
-    "filepath": "src/layouts/dashboard/Dashboard.js"
+    "filepath": "src/components/dashboard/Dashboard.js"
   },
   {
     "id": "inbox",
     "defaultMessage": "Inbox",
-    "filepath": "src/layouts/dashboard/Dashboard.js"
+    "filepath": "src/components/dashboard/Dashboard.js"
   },
   {
     "id": "drafts",
     "defaultMessage": "Drafts",
-    "filepath": "src/layouts/dashboard/Dashboard.js"
+    "filepath": "src/components/dashboard/Dashboard.js"
   },
   {
     "id": "trash",
     "defaultMessage": "Trash",
-    "filepath": "src/layouts/dashboard/Dashboard.js"
+    "filepath": "src/components/dashboard/Dashboard.js"
   },
   {
     "id": "Spam",
     "defaultMessage": "Spam",
-    "filepath": "src/layouts/dashboard/Dashboard.js"
+    "filepath": "src/components/dashboard/Dashboard.js"
+  },
+  {
+    "id": "drafts.title",
+    "defaultMessage": "This is Drafts Component",
+    "filepath": "src/components/drafts/Drafts.js"
+  },
+  {
+    "id": "inbox.title",
+    "defaultMessage": "This is Inbox Component",
+    "filepath": "src/components/inbox/Inbox.js"
+  },
+  {
+    "id": "login.title",
+    "defaultMessage": "Log in",
+    "filepath": "src/components/login/Login.js"
+  },
+  {
+    "id": "login.signup",
+    "defaultMessage": "Registry now!",
+    "filepath": "src/components/login/Login.js"
+  },
+  {
+    "id": "login.password",
+    "defaultMessage": "Password",
+    "filepath": "src/components/login/Login.js"
+  },
+  {
+    "id": "spam.title",
+    "defaultMessage": "This is Spam Component",
+    "filepath": "src/components/spam/Spam.js"
+  },
+  {
+    "id": "trash.title",
+    "defaultMessage": "This is Trash Component",
+    "filepath": "src/components/trash/Trash.js"
   }
 ]

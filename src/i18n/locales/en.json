@@ -1,12 +1,15 @@
 {
   "Spam": "Spam",
   "compose": "Compose",
-  "compose.title": "Compose Component",
+  "compose.title": "This is Compose Component",
   "drafts": "Drafts",
-  "drafts.title": "Drafts Component",
+  "drafts.title": "This is Drafts Component",
   "inbox": "Inbox",
-  "inbox.title": "Inbox Component",
-  "spam.title": "Spam Component",
+  "inbox.title": "This is Inbox Component",
+  "login.password": "Password",
+  "login.signup": "Registry now!",
+  "login.title": "Log in",
+  "spam.title": "This is Spam Component",
   "trash": "Trash",
-  "trash.title": "Trash Component"
+  "trash.title": "This is Trash Component"
 }

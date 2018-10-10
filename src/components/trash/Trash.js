@@ -4,7 +4,7 @@ import { injectIntl, defineMessages } from "react-intl";
 const messages = defineMessages({
     title: {
         id: 'trash.title',
-        defaultMessage: 'Trash Component'
+        defaultMessage: 'This is Trash Component'
     }
 })
 

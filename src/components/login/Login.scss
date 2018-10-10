@@ -16,19 +16,23 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
     border: 2px solid rgba(0, 0, 0, .5);
+    transition: all 0.25s;
     &:before {
         content: '';
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, .1);
+        height: 0;
+        background: rgba(255, 255, 255, 0.1);
         transition: .5s;
         pointer-events: none;
+        background: #009688;
     }
-    &:hover:before {
-        top: -15%;
+    &:hover {
+        &:before {
+            height: 15%;
+        }
     }
     &__content {
         position: absolute;
@@ -78,19 +82,21 @@ body {
         position: absolute;
         top: 92%;
         right: 10%;
-        opacity: .5;
         transition: 1s all;
         .link {
             color: #009688;
             text-decoration: none;
             &:hover {
-                color: #009688 - 40;
+                color: #dde6e5 - 40;
             }
         }
     }
     &:hover &__footer {
         transition: 1s all;
         opacity: 1;
+        .link {
+            color: #fff;
+        }
     }
     .span-line {
         position: absolute;

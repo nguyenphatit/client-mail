@@ -4,9 +4,32 @@ import { connect } from 'react-redux';
 import { loginUser } from './../../actions/authentication';
 
 class LoginContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            errors: {}
+        }
+    }
 
     onSubmit = (user) => {
         this.props.loginUser(user);
+    }
+
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated) {
+            window.location.href = '/';
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.auth.isAuthenticated) {
+            window.location.href = '/';
+        }
+        if(nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
     }
 
     render() {

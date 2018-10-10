@@ -4,7 +4,7 @@ import { injectIntl, defineMessages } from "react-intl";
 const messages = defineMessages({
     title: {
         id: 'compose.title',
-        defaultMessage: 'Compose Component'
+        defaultMessage: 'This is Compose Component'
     }
 })
 
