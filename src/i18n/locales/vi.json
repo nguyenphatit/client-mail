@@ -1,7 +1,8 @@
 {
   "Spam": "Thư rác",
   "compose": "Soạn thư mới",
-  "compose.title": "Đây là Compose Component",
+  "compose.title": "Chủ đề",
+  "compose.to": "Gửi tới",
   "drafts": "Thư nháp",
   "drafts.title": "Đây là Drafts Component",
   "inbox": "Hộp thư",

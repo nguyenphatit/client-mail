@@ -1,10 +1,11 @@
 import { GET_ERRORS, SET_CURRENT_USER, AUTHENTICATE } from './../constants/ActionType';
-import NodeAPI from './../utils/node-api';
-import setAuthToken from './../setAuthToken';
+import axios from 'axios';
+import { NODE_API } from './../constants/Config';
+import setAuthToken from '../util/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
 export const registerUser = (user, history) => dispatch => {
-    NodeAPI('POST', '/api/users/register', user)
+    axios.post(`${NODE_API}/api/users/register`, user)
         .then(res => window.location.href = '/login')
         .catch(err => {
             dispatch({
@@ -15,13 +16,14 @@ export const registerUser = (user, history) => dispatch => {
 }
 
 export const loginUser = user => dispatch => {
-    NodeAPI('POST', '/api/users/login', user)
+    axios.post(`${NODE_API}/api/users/login`, user)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
             setAuthToken(token);
             const decode = jwt_decode(token);
             dispatch(setCurrentUser(decode));
+            authenticate();
         })
         .catch(err => {
             dispatch({
@@ -46,9 +48,9 @@ export const logoutUser = history => dispatch => {
 }
 
 export const authenticate = () => dispatch => {
-    NodeAPI('GET', '/api/users/me', null)
+    setAuthToken(localStorage.getItem('jwtToken'))
+    axios.get(`${NODE_API}/api/users/me`)
         .then(res => {
-            setAuthToken(localStorage.setItem('jwtToken'));
             dispatch({
                 type: AUTHENTICATE,
                 payload: res.data

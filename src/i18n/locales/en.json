@@ -1,7 +1,8 @@
 {
   "Spam": "Spam",
   "compose": "Compose",
-  "compose.title": "This is Compose Component",
+  "compose.title": "Title",
+  "compose.to": "To",
   "drafts": "Drafts",
   "drafts.title": "This is Drafts Component",
   "inbox": "Inbox",

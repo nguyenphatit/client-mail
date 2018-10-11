@@ -1,7 +1,12 @@
 [
   {
     "id": "compose.title",
-    "defaultMessage": "This is Compose Component",
+    "defaultMessage": "Title",
+    "filepath": "src/components/compose/Compose.js"
+  },
+  {
+    "id": "compose.to",
+    "defaultMessage": "To",
     "filepath": "src/components/compose/Compose.js"
   },
   {

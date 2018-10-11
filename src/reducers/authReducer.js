@@ -18,7 +18,7 @@ const authReducer = (state = initialState, action) => {
         case AUTHENTICATE:
             return {
                 ...state,
-                user: action.payload
+                userInfo: action.payload
             }
 
         default:

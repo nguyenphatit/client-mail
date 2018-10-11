@@ -175,6 +175,7 @@ class Dashboard extends Component {
         this.state = {
             open: true,
             anchorEl: null,
+            user: {}
         };
     }
 
@@ -200,7 +201,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, userInfo } = this.props;
         const open = Boolean(this.state.anchorEl);
         const { intl: { formatMessage } } = this.props;
         const renderMenu = (
@@ -219,8 +220,8 @@ class Dashboard extends Component {
                 <IconButton color="inherit" onClick={this.onLogout}>
                     <ExitToAppIcon />
                 </IconButton>
-                <Tooltip title="Remy Sharp" placement="bottom">
-                    <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/remy.jpg" className={classes.avatar} />
+                <Tooltip title={ userInfo ? `${userInfo.firstname} ${userInfo.lastname}` : 'Name'} placement="bottom">
+                    <Avatar alt={ userInfo ? `${userInfo.firstname} ${userInfo.lastname}` : 'Name'} src={userInfo ? userInfo.avatar :"https://material-ui.com/static/images/remy.jpg"} className={classes.avatar} />
                 </Tooltip>
             </Hidden>
         )
@@ -256,10 +257,10 @@ class Dashboard extends Component {
                         <ListItemText classes={{ primary: classes.primary }} inset primary="Notifications" />
                     </MenuItem>
                     <MenuItem onClick={this.handleClose}>
-                        <Tooltip title="Remy Sharp" placement="bottom">
-                            <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/remy.jpg" className={classes.avatar} />
+                        <Tooltip title={ userInfo ? `${userInfo.firstname} ${userInfo.lastname}` : 'Name'} placement="bottom">
+                            <Avatar alt={ userInfo ? `${userInfo.firstname} ${userInfo.lastname}` : 'Name'} src={userInfo ? userInfo.avatar :"https://material-ui.com/static/images/remy.jpg"} className={classes.avatar} />
                         </Tooltip>
-                        <ListItemText classes={{ primary: classes.primary }} inset primary="Remy" />
+                        <ListItemText classes={{ primary: classes.primary }} inset primary={ userInfo ? userInfo.firstname : 'Name'} />
                     </MenuItem>
                     <MenuItem onClick={this.onLogout}>
                         <ListItemIcon className={classes.icon}>
@@ -308,7 +309,7 @@ class Dashboard extends Component {
                                 className={classes.title}
                                 style={this.state.open ? { "display": "block" } : { "display": "none" }}
                             >
-                                Dashboard
+                                { userInfo ? userInfo.email : 'Dashboard'}
                             </Typography>
                             {renderMenu}
                             {renderMobileMenu}
