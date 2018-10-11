@@ -13,13 +13,15 @@ class DashboardContainer extends Component {
         if (!this.props.auth.isAuthenticated) {
             window.location.href = '/login';
         }
+        this.props.authenticate();
     }
 
     render() {
-        this.props.authenticate();
+        const { userInfo } = this.props.auth;
         return (
-            <Dashboard 
+            <Dashboard
                 onLogout={this.onLogout}
+                userInfo={userInfo}
             >
                 {this.props.children}
             </Dashboard>
