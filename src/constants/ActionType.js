@@ -1,3 +1,5 @@
 export const GET_ERRORS = 'GET_ERRORS';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const AUTHENTICATE = 'AUTHENTICATE';
+export const LOAD_MAIL_SEND = 'LOAD_MAIL_SEND';
+export const LOAD_MAIL_INBOX = 'LOAD_MAIL_INBOX';

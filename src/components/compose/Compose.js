@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl, defineMessages } from "react-intl";
 import { Grid, Paper, TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import EditorDraft from '../editor/EditorDraft';
+// import EditorDraft from '../editor/EditorDraft';
 
 const messages = defineMessages({
     title: {
@@ -17,6 +17,10 @@ const messages = defineMessages({
         id: 'compose.send',
         defaultMessage: 'Send'
     },
+    content: {
+        id: 'compose.content',
+        defaultMessage: 'Content'
+    }
 })
 
 const styles = theme => ({
@@ -28,6 +32,9 @@ const styles = theme => ({
     },
     formFooter: {
         textAlign: 'right',
+    },
+    contentEditor: {
+        minWidth: 300,
     }
 })
 
@@ -38,6 +45,7 @@ class Compose extends Component {
         this.state = {
             receiver: '',
             title: '',
+            content: ''
         }
     }
 
@@ -52,6 +60,7 @@ class Compose extends Component {
         let mail = {
             receiver: this.state.receiver,
             title: this.state.title,
+            content: this.state.content
         }
         console.log(mail);
     }
@@ -84,9 +93,19 @@ class Compose extends Component {
                                 variant="outlined"
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} className={classes.contentEditor}>
                             <Paper className={classes.paper}>
-                                <EditorDraft />
+                                <TextField
+                                    id="content"
+                                    label={formatMessage(messages.content)}
+                                    multiline
+                                    rows="4"
+                                    className={classes.textField}
+                                    value={this.state.content}
+                                    onChange={this.handleChange('content')}
+                                    margin="normal"
+                                    variant="outlined"
+                                />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} className={classes.formFooter}>

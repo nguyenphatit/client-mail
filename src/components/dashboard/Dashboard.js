@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { ListItem, ListItemIcon, ListItemText, Avatar, Tooltip, Hidden, Menu, MenuItem, Button } from '@material-ui/core';
 import InboxIcon from '@material-ui/icons/Inbox';
+import SendIcon from '@material-ui/icons/Send';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
@@ -154,6 +155,10 @@ const messages = defineMessages({
     inbox: {
         id: 'inbox',
         defaultMessage: 'Inbox'
+    },
+    send: {
+        id: 'send',
+        defaultMessage: 'Send'
     },
     drafts: {
         id: 'drafts',
@@ -359,6 +364,14 @@ class Dashboard extends Component {
                                         <InboxIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={formatMessage(messages.inbox)} />
+                                </ListItem>
+                            </NavLink>
+                            <NavLink to='/send' className={classes.item}>
+                                <ListItem button >
+                                    <ListItemIcon>
+                                        <SendIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary={formatMessage(messages.send)} />
                                 </ListItem>
                             </NavLink>
                             <NavLink to='/drafts' className={classes.item}>
