@@ -20,6 +20,10 @@ const routes = [
         exact: true,
         main: () => <Dashboard><DraftsContainer /></Dashboard>
     }, {
+        path: '/send',
+        exact: true,
+        main: () => <Dashboard><TrashContainer /></Dashboard>
+    }, {
         path: '/trash',
         exact: true,
         main: () => <Dashboard><TrashContainer /></Dashboard>
