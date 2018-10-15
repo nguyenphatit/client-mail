@@ -1,6 +1,8 @@
 {
   "Spam": "Thư rác",
   "compose": "Soạn thư mới",
+  "compose.content": "Content",
+  "compose.send": "Send",
   "compose.title": "Chủ đề",
   "compose.to": "Gửi tới",
   "drafts": "Thư nháp",
@@ -10,6 +12,7 @@
   "login.password": "Mật khẩu",
   "login.signup": "Đăng ký ngay!",
   "login.title": "Đăng nhập",
+  "sent": "Sent",
   "spam.title": "Đây là Spam Component",
   "trash": "Thư đã xoá",
   "trash.title": "Đây là Trash Component"

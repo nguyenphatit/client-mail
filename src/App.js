@@ -77,7 +77,7 @@ class App extends Component {
 								{this.renderContent(routes)}
 								<Route path='/login' render={() => <LoginContainer />} />
 								<Route path='/signup' render={() => <SignupContainer />} />
-								<Route path='' exact render={() => <NotFound />} />
+								<Route path='' render={() => <NotFound />} />
 							</Switch>
 						</Router >
 					</Provider>
