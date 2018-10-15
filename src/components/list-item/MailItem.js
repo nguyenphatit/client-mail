@@ -45,12 +45,16 @@ const styles = theme => ({
     },
 });
 
-class InboxItem extends Component {
+class MailItem extends Component {
     render() {
-        const { classes, item } = this.props;
+        const { classes, item, match } = this.props;
+        console.log(match.path)
         return (
             <React.Fragment>
-                <NavLink to={`/sent/${item._id}`} className={classes.item}>
+                <NavLink 
+                    className={classes.item}
+                    to={(match.path === '/') ? `/inbox/${item._id}` : `${match.path}/${item._id}`} 
+                >
                     <ListItem button component="nav" onClick={this.routeChange}>
                         <ListItemText primary={`${item.userSender.firstname} ${item.userSender.lastname}`} />
                         <Hidden mdDown>
@@ -84,4 +88,4 @@ class InboxItem extends Component {
     }
 }
 
-export default withStyles(styles)(InboxItem);
+export default withStyles(styles)(MailItem);

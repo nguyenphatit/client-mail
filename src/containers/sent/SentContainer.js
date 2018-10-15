@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ListMail from '../../components/list/ListMail';
 import { connect } from 'react-redux';
-import { getAllMailInbox } from './../../actions/mailer';
+import { getAllMailSent } from './../../actions/mailer';
 import MailItem from '../../components/list-item/MailItem';
 
-class InboxContainer extends Component {
+class SentContainer extends Component {
     render() {
         const { listMail } = this.props.mail;
         return (
@@ -24,25 +24,23 @@ class InboxContainer extends Component {
         return result;
     }
 
-    getUserMore = (id) => {
-        this.props.getUserById(id)
-    }
-
     componentDidMount() {
         this.props.getAllMailInbox()
     }
 }
 
+
 const mapStateToProps = (state) => ({
+    auth: state.auth,
     mail: state.mail
 })
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
         getAllMailInbox: () => {
-            dispatch(getAllMailInbox())
+            dispatch(getAllMailSent())
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InboxContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SentContainer);

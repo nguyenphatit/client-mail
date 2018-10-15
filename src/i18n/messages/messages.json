@@ -10,6 +10,16 @@
     "filepath": "src/components/compose/Compose.js"
   },
   {
+    "id": "compose.send",
+    "defaultMessage": "Send",
+    "filepath": "src/components/compose/Compose.js"
+  },
+  {
+    "id": "compose.content",
+    "defaultMessage": "Content",
+    "filepath": "src/components/compose/Compose.js"
+  },
+  {
     "id": "compose",
     "defaultMessage": "Compose",
     "filepath": "src/components/dashboard/Dashboard.js"
@@ -17,6 +27,11 @@
   {
     "id": "inbox",
     "defaultMessage": "Inbox",
+    "filepath": "src/components/dashboard/Dashboard.js"
+  },
+  {
+    "id": "sent",
+    "defaultMessage": "Sent",
     "filepath": "src/components/dashboard/Dashboard.js"
   },
   {

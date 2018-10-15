@@ -17,7 +17,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { ListItem, ListItemIcon, ListItemText, Avatar, Tooltip, Hidden, Menu, MenuItem, Button } from '@material-ui/core';
 import InboxIcon from '@material-ui/icons/Inbox';
 import SendIcon from '@material-ui/icons/Send';
-import DraftsIcon from '@material-ui/icons/Drafts';
+// import DraftsIcon from '@material-ui/icons/Drafts';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import ReportIcon from '@material-ui/icons/Report';
@@ -156,9 +156,9 @@ const messages = defineMessages({
         id: 'inbox',
         defaultMessage: 'Inbox'
     },
-    send: {
-        id: 'send',
-        defaultMessage: 'Send'
+    sent: {
+        id: 'sent',
+        defaultMessage: 'Sent'
     },
     drafts: {
         id: 'drafts',
@@ -366,22 +366,22 @@ class Dashboard extends Component {
                                     <ListItemText primary={formatMessage(messages.inbox)} />
                                 </ListItem>
                             </NavLink>
-                            <NavLink to='/send' className={classes.item}>
+                            <NavLink to='/sent' className={classes.item}>
                                 <ListItem button >
                                     <ListItemIcon>
                                         <SendIcon />
                                     </ListItemIcon>
-                                    <ListItemText primary={formatMessage(messages.send)} />
+                                    <ListItemText primary={formatMessage(messages.sent)} />
                                 </ListItem>
                             </NavLink>
-                            <NavLink to='/drafts' className={classes.item}>
+                            {/* <NavLink to='/drafts' className={classes.item}>
                                 <ListItem button >
                                     <ListItemIcon>
                                         <DraftsIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={formatMessage(messages.drafts)} />
                                 </ListItem>
-                            </NavLink>
+                            </NavLink> */}
                             <NavLink to='/trash' className={classes.item}>
                                 <ListItem button >
                                     <ListItemIcon>

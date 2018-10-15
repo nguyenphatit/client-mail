@@ -1,6 +1,8 @@
 {
   "Spam": "Spam",
   "compose": "Compose",
+  "compose.content": "Content",
+  "compose.send": "Send",
   "compose.title": "Title",
   "compose.to": "To",
   "drafts": "Drafts",
@@ -10,6 +12,7 @@
   "login.password": "Password",
   "login.signup": "Registry now!",
   "login.title": "Log in",
+  "sent": "Sent",
   "spam.title": "This is Spam Component",
   "trash": "Trash",
   "trash.title": "This is Trash Component"

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { NavLink } from 'react-router-dom';
 import './NotFound.scss';
+import earth from './earth.png';
 
 class NotFound extends Component {
     render() {
@@ -19,7 +20,7 @@ class NotFound extends Component {
                 </div>
                 <div className="NotFound__image">
                     <div className="Earth">
-                        <img src='./earth.png' alt="Earth" />
+                        <img src={earth} alt="Earth" />
                     </div>
                 </div>
             </div>

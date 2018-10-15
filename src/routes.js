@@ -3,14 +3,15 @@ import Dashboard from './containers/dashboard/DashboardContainer';
 import ComposeContainer from './containers/compose/ComposeContainer';
 import InboxContainer from './containers/inbox/InboxContainer';
 import DraftsContainer from './containers/drafts/DraftsContainer';
-import TrashContainer from './containers/trash/Trash';
+import SentContainer from './containers/sent/SentContainer';
+import TrashContainer from './containers/trash/TrashContainer';
 import SpamContainer from './containers/spam/SpamContainer';
 
 const routes = [
     {
         path: '/',
         exact: true,
-        main: () => <Dashboard><InboxContainer /></Dashboard>
+        main: ({match}) => <Dashboard><InboxContainer match={match} /></Dashboard>
     }, {
         path: '/compose',
         exact: true,
@@ -20,9 +21,9 @@ const routes = [
         exact: true,
         main: () => <Dashboard><DraftsContainer /></Dashboard>
     }, {
-        path: '/send',
+        path: '/sent',
         exact: true,
-        main: () => <Dashboard><TrashContainer /></Dashboard>
+        main: ({match}) => <Dashboard><SentContainer match={match} /></Dashboard>
     }, {
         path: '/trash',
         exact: true,
