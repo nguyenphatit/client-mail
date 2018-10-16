@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ListMail from '../../components/list/ListMail';
 import { connect } from 'react-redux';
-import { getAllMailSent } from './../../actions/mailer';
+import { getAllMailSent, deleteRestore } from './../../actions/mailer';
 import MailItem from '../../components/list-item/MailItem';
+import Typography from '@material-ui/core/Typography';
 
 class SentContainer extends Component {
     render() {
@@ -14,18 +15,26 @@ class SentContainer extends Component {
         );
     }
 
+    deleteRestoreMail = id => {
+        this.props.deleteRestore(id)
+    }
+
     showMail = (listMail) => {
         let result = null;
         if (listMail.length > 0) {
             result = listMail.map((item, index) => {
-                return <MailItem item={item} key={index} match={this.props.match} />
+                return <MailItem item={item} key={index} match={this.props.match} history={this.props.history} deleteRestoreMail={this.deleteRestoreMail} />
             })
+        } else {
+            result = (<Typography variant="h4" gutterBottom align="center">
+                        No mail sent
+                    </Typography>)
         }
         return result;
     }
 
     componentDidMount() {
-        this.props.getAllMailInbox()
+        this.props.getAllMailSent()
     }
 }
 
@@ -37,8 +46,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        getAllMailInbox: () => {
+        getAllMailSent: () => {
             dispatch(getAllMailSent())
+        },
+        deleteRestore: id => {
+            dispatch(deleteRestore(id))
         }
     }
 }
