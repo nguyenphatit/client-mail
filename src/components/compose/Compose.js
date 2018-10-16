@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { injectIntl, defineMessages } from "react-intl";
-import { Grid, Paper, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 // import EditorDraft from '../editor/EditorDraft';
 
@@ -62,11 +62,12 @@ class Compose extends Component {
             title: this.state.title,
             content: this.state.content
         }
-        console.log(mail);
+        this.props.onSubmit(mail)
     }
 
     render() {
-        const { intl: { formatMessage }, classes } = this.props;
+        const { intl: { formatMessage }, classes, errors } = this.props;
+        console.log(errors)
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
@@ -80,7 +81,11 @@ class Compose extends Component {
                                 onChange={this.handleChange('receiver')}
                                 margin="normal"
                                 variant="outlined"
+                                required={true}
                             />
+                            <Typography variant="caption" gutterBottom color="secondary">
+                                {errors.messages ? errors.messages : ''}
+                            </Typography>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                             <TextField
@@ -105,7 +110,11 @@ class Compose extends Component {
                                     onChange={this.handleChange('content')}
                                     margin="normal"
                                     variant="outlined"
+                                    required={true}
                                 />
+                                <Typography variant="caption" gutterBottom color="secondary">
+                                    {errors.content ? errors.content : ''}
+                                </Typography>
                             </Paper>
                         </Grid>
                         <Grid item xs={12} className={classes.formFooter}>

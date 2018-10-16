@@ -6,12 +6,13 @@ import DraftsContainer from './containers/drafts/DraftsContainer';
 import SentContainer from './containers/sent/SentContainer';
 import TrashContainer from './containers/trash/TrashContainer';
 import SpamContainer from './containers/spam/SpamContainer';
+import MailContentContainer from './containers/mail-content/MailContentContainer';
 
 const routes = [
     {
         path: '/',
         exact: true,
-        main: ({match}) => <Dashboard><InboxContainer match={match} /></Dashboard>
+        main: ({match, history}) => <Dashboard><InboxContainer match={match} history={history} /></Dashboard>
     }, {
         path: '/compose',
         exact: true,
@@ -23,33 +24,28 @@ const routes = [
     }, {
         path: '/sent',
         exact: true,
-        main: ({match}) => <Dashboard><SentContainer match={match} /></Dashboard>
+        main: ({match, history}) => <Dashboard><SentContainer match={match} history={history} /></Dashboard>
     }, {
         path: '/trash',
         exact: true,
-        main: () => <Dashboard><TrashContainer /></Dashboard>
+        main: ({match, history}) => <Dashboard><TrashContainer match={match} history={history} /></Dashboard>
     }, {
         path: '/spam',
         exact: true,
         main: () => <Dashboard><SpamContainer /></Dashboard>
-    },
-    //  {
-    //     path: '/signup',
-    //     exact: false,
-    //     main: () => <SignupContainer />
-    // }, {
-    //     path: '/login',
-    //     exact: false,
-    //     main: () => <LoginContainer />
-    // }, {
-    //     path: '/simple',
-    //     exact: false,
-    //     main: () => <SimpleFormExample />
-    // }, {
-    //     path: '',
-    //     exact: false,
-    //     main: () => <NotFound />
-    // }
+    }, {
+        path: '/inbox/:id',
+        exact: false,
+        main: ({match, history}) => <Dashboard><MailContentContainer match={match} history={history} /></Dashboard>
+    }, {
+        path: '/sent/:id',
+        exact: false,
+        main: ({match, history}) => <Dashboard><MailContentContainer match={match} history={history} /></Dashboard>
+    }, {
+        path: '/trash/:id',
+        exact: false,
+        main: ({match, history}) => <Dashboard><MailContentContainer match={match} history={history} /></Dashboard>
+    }
 ]
 
 export default routes;

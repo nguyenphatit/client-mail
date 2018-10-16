@@ -17,10 +17,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { ListItem, ListItemIcon, ListItemText, Avatar, Tooltip, Hidden, Menu, MenuItem, Button } from '@material-ui/core';
 import InboxIcon from '@material-ui/icons/Inbox';
 import SendIcon from '@material-ui/icons/Send';
-// import DraftsIcon from '@material-ui/icons/Drafts';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
-import ReportIcon from '@material-ui/icons/Report';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { NavLink } from 'react-router-dom';
@@ -374,28 +372,12 @@ class Dashboard extends Component {
                                     <ListItemText primary={formatMessage(messages.sent)} />
                                 </ListItem>
                             </NavLink>
-                            {/* <NavLink to='/drafts' className={classes.item}>
-                                <ListItem button >
-                                    <ListItemIcon>
-                                        <DraftsIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={formatMessage(messages.drafts)} />
-                                </ListItem>
-                            </NavLink> */}
                             <NavLink to='/trash' className={classes.item}>
                                 <ListItem button >
                                     <ListItemIcon>
                                         <DeleteIcon />
                                     </ListItemIcon>
                                     <ListItemText primary={formatMessage(messages.trash)} />
-                                </ListItem>
-                            </NavLink>
-                            <NavLink to='/spam' className={classes.item}>
-                                <ListItem button >
-                                    <ListItemIcon>
-                                        <ReportIcon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={formatMessage(messages.spam)} />
                                 </ListItem>
                             </NavLink>
                         </List>
