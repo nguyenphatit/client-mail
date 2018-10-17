@@ -7,3 +7,4 @@ export const LOAD_ALL_MAIL_TRASH = 'LOAD_ALL_MAIL_TRASH';
 export const LOAD_MAIL_INFO = 'LOAD_MAIL_INFO';
 export const DELETE_RESTORE = 'DELETE_RESTORE';
 export const SEND_MAIL = 'SEND_MAIL';
+export const READ_MAIL = 'READ_MAIL';

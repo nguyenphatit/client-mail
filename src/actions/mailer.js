@@ -5,6 +5,7 @@ import {
     LOAD_MAIL_INFO,
     DELETE_RESTORE,
     SEND_MAIL,
+    READ_MAIL,
     GET_ERRORS
 } from './../constants/ActionType';
 import axios from 'axios';
@@ -106,6 +107,24 @@ export const sendMail = data => dispatch => {
         .then(res => {
             dispatch({
                 type: SEND_MAIL,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        })
+}
+
+export const readMail = id => dispatch => {
+    const token = localStorage.getItem('jwtToken');
+    setAuthToken(token)
+    axios.get(`${NODE_API}/api/mails/read/${id}`)
+        .then(res => {
+            dispatch({
+                type: READ_MAIL,
                 payload: res.data
             })
         })

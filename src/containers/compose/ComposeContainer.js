@@ -15,11 +15,11 @@ class ComposeContainer extends Component {
                 errors: nextProps.errors
             });
         }
-        window.location.href = '/';
+        window.location.href = '/sent';
     }
 
     render() {
-        console.log(this.props.mail)
+        // console.log(this.props.mail)
         return (
             <Compose onSubmit={this.onSubmit} errors={this.props.errors} />
         );

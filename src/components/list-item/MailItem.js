@@ -3,6 +3,13 @@ import { ListItem, ListItemText, ListItemSecondaryAction, IconButton, Typography
 import DeleteIcon from '@material-ui/icons/Delete';
 import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 import Moment from 'react-moment';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    unread: {
+        backgroundColor: '#f2f2f2',
+    }
+})
 
 class MailItem extends Component {
 
@@ -11,18 +18,25 @@ class MailItem extends Component {
     }
 
     routeChange = () => {
-        const { match, history, item } = this.props;
-        let path = (match.url === '/') ? `/inbox/${item._id}` : `${match.url}/${item._id}`;
-        history.push(path);
+        const { item } = this.props;
+        this.props.routeChange(item._id);
     }
 
     render() {
-        const { item } = this.props;
+        const { item, classes } = this.props;
+        const userSend = (
+            <Typography variant="body1" gutterBottom>
+                <b>{item.userSender.firstname} {item.userSender.lastname}</b>
+                &nbsp;to&nbsp;
+                <b>{item.userReceiver.firstname} {item.userReceiver.lastname}</b>
+            </Typography>
+        )
         return (
             <React.Fragment>
-
-                <ListItem button component="nav">
-                    <ListItemText primary={`${item.userSender.firstname} ${item.userSender.lastname}`} onClick={this.routeChange} />
+                <ListItem button component="nav" className={item.read ? '' : classes.unread}>
+                    <ListItemText
+                        primary={userSend}
+                        onClick={this.routeChange} />
                     <Hidden mdDown>
                         <ListItemText onClick={this.routeChange}>
                             <Typography variant="body2" gutterBottom noWrap className="content-message">
@@ -59,4 +73,4 @@ class MailItem extends Component {
     }
 }
 
-export default MailItem;
+export default withStyles(styles)(MailItem);

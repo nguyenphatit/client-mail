@@ -215,11 +215,6 @@ class Dashboard extends Component {
                 <Button href="/?locale=vi" style={{ "color": "#fff" }}>
                     Tiếng Việt
                 </Button>
-                <IconButton color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
                 <IconButton color="inherit" onClick={this.onLogout}>
                     <ExitToAppIcon />
                 </IconButton>
