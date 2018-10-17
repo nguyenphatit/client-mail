@@ -16,7 +16,7 @@ const routes = [
     }, {
         path: '/compose',
         exact: true,
-        main: () => <Dashboard><ComposeContainer /></Dashboard>
+        main: ({match, history}) => <Dashboard><ComposeContainer match={match} history={history} /></Dashboard>
     }, {
         path: '/drafts',
         exact: true,

@@ -9,10 +9,14 @@ import {
     Card,
     CardContent,
     Divider,
-    Hidden
+    Hidden,
+    Tooltip,
+    IconButton
 } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Moment from 'react-moment';
+import DeleteIcon from '@material-ui/icons/Delete';
+import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 
 const styles = theme => ({
     root: {
@@ -25,12 +29,27 @@ const styles = theme => ({
 });
 
 class MailContent extends Component {
+
+    deleteRestoreMail = id => {
+        this.props.deleteRestoreMail(id)
+    }
+
     render() {
         const { classes, mailContent } = this.props;
         return (
             <div className={classes.root}>
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
+                        <Tooltip title="Delete" placement="bottom" style={mailContent.trash ? { display: 'none' } : { display: 'block' }}>
+                            <IconButton aria-label="Delete" onClick={() => this.deleteRestoreMail(mailContent._id)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Restore" placement="bottom" style={mailContent.trash ? { display: 'block' } : { display: 'none' }}>
+                            <IconButton aria-label="Restore" onClick={() => this.deleteRestoreMail(mailContent._id)}>
+                                <RestoreFromTrashIcon />
+                            </IconButton>
+                        </Tooltip>
                         <Paper className={classes.paper}>
                             <Typography variant="h5" gutterBottom>
                                 {mailContent.title}

@@ -4,7 +4,8 @@ import {
     LOAD_ALL_MAIL_TRASH,
     DELETE_RESTORE,
     LOAD_MAIL_INFO,
-    SEND_MAIL
+    SEND_MAIL,
+    READ_MAIL
 } from './../constants/ActionType';
 
 const initialState = {
@@ -50,6 +51,12 @@ const mailReducer = (state = initialState, action) => {
             }
 
         case SEND_MAIL:
+            return {
+                ...state,
+                mailContent: action.payload
+            }
+
+        case READ_MAIL:
             return {
                 ...state,
                 mailContent: action.payload
