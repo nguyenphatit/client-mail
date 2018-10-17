@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { injectIntl, defineMessages } from "react-intl";
 import { connect } from 'react-redux';
 import { getAllMailSent, deleteRestore, readMail } from './../../actions/mailer';
 import ListMail from '../../components/list/ListMail';
@@ -6,6 +7,13 @@ import MailItem from '../../components/list-item/MailItem';
 import Search from './../../components/search/Search';
 import Sort from './../../components/sort/Sort';
 import { Typography, Divider } from '@material-ui/core';
+
+const messages = defineMessages({
+    messageContent: {
+        id: 'sentcontainer.messageContent',
+        defaultMessage: 'No content'
+    }
+})
 
 class SentContainer extends Component {
     constructor(props) {
@@ -22,6 +30,7 @@ class SentContainer extends Component {
     render() {
         let { listMail } = this.props.mail;
         let { search, sort } = this.state;
+        const { intl: { formatMessage } } = this.props;
         if (search) {
             listMail = listMail.filter(item => {
                 return (
@@ -50,14 +59,14 @@ class SentContainer extends Component {
             })
         }
         let showMail = listMail.map((item, index) => {
-            return <MailItem 
-                        item={item} 
-                        key={index} 
-                        match={this.props.match} 
-                        history={this.props.history} 
-                        deleteRestoreMail={this.deleteRestoreMail}
-                        routeChange={this.routeChange}
-                    />
+            return <MailItem
+                item={item}
+                key={index}
+                match={this.props.match}
+                history={this.props.history}
+                deleteRestoreMail={this.deleteRestoreMail}
+                routeChange={this.routeChange}
+            />
         })
         return (
             <ListMail listMail={listMail}>
@@ -66,7 +75,7 @@ class SentContainer extends Component {
                 <Sort handleSort={this.handleSort} />
                 <Divider />
                 {showMail.length > 0 ? showMail : <Typography variant="h6" align="center" gutterBottom>
-                    No content
+                    {formatMessage(messages.messageContent)}
                 </Typography>}
             </ListMail>
         );
@@ -137,5 +146,7 @@ const mapDispatchToProps = (dispatch, props) => {
         }
     }
 }
+
+SentContainer = injectIntl(SentContainer)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SentContainer);

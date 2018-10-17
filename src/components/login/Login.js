@@ -44,7 +44,7 @@ class Login extends Component {
     }
 
     render() {
-        const { intl: { formatMessage } } = this.props;
+        const { intl: { formatMessage }, errors } = this.props;
         return (
             <div className="Login">
                 <span className="span-line"></span>
@@ -73,6 +73,9 @@ class Login extends Component {
                             validators={['required', 'isEmail']}
                             errorMessages={['This field is required', 'Email is not valid']}
                         />
+                        <Typography variant="caption" gutterBottom color="secondary" align="left">
+                            {errors.email ? errors.email : ''}
+                        </Typography>
                         <TextValidator
                             id="password"
                             label={formatMessage(messages.password)}
@@ -87,6 +90,9 @@ class Login extends Component {
                             validators={['required']}
                             errorMessages={['This field is required']}
                         />
+                        <Typography variant="caption" gutterBottom color="secondary" align="left">
+                            {errors.password ? errors.password : ''}
+                        </Typography>
                         <div>
                             <button type="submit" className="btn-login">{formatMessage(messages.title)}</button>
                         </div>

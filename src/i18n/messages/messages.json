@@ -50,16 +50,6 @@
     "filepath": "src/components/dashboard/Dashboard.js"
   },
   {
-    "id": "drafts.title",
-    "defaultMessage": "This is Drafts Component",
-    "filepath": "src/components/drafts/Drafts.js"
-  },
-  {
-    "id": "inbox.title",
-    "defaultMessage": "This is Inbox Component",
-    "filepath": "src/components/inbox/Inbox.js"
-  },
-  {
     "id": "login.title",
     "defaultMessage": "Log in",
     "filepath": "src/components/login/Login.js"
@@ -75,13 +65,33 @@
     "filepath": "src/components/login/Login.js"
   },
   {
-    "id": "spam.title",
-    "defaultMessage": "This is Spam Component",
-    "filepath": "src/components/spam/Spam.js"
+    "id": "search.search",
+    "defaultMessage": "Search",
+    "filepath": "src/components/search/Search.js"
   },
   {
-    "id": "trash.title",
-    "defaultMessage": "This is Trash Component",
-    "filepath": "src/components/trash/Trash.js"
+    "id": "sort.bydate",
+    "defaultMessage": "Sort by date",
+    "filepath": "src/components/sort/Sort.js"
+  },
+  {
+    "id": "sort.byname",
+    "defaultMessage": "Sort by name",
+    "filepath": "src/components/sort/Sort.js"
+  },
+  {
+    "id": "inboxcontainer.messageContent",
+    "defaultMessage": "No content",
+    "filepath": "src/containers/inbox/InboxContainer.js"
+  },
+  {
+    "id": "sentcontainer.messageContent",
+    "defaultMessage": "No content",
+    "filepath": "src/containers/sent/SentContainer.js"
+  },
+  {
+    "id": "trashcontainer.messageContent",
+    "defaultMessage": "No content",
+    "filepath": "src/containers/trash/TrashContainer.js"
   }
 ]

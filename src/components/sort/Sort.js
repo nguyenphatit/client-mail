@@ -3,6 +3,19 @@ import { withStyles } from '@material-ui/core/styles';
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { injectIntl, defineMessages } from "react-intl";
+
+const messages = defineMessages({
+    bydate: {
+        id: 'sort.bydate',
+        defaultMessage: 'Sort by date'
+    },
+    byname: {
+        id: 'sort.byname',
+        defaultMessage: 'Sort by name'
+    }
+})
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -45,7 +58,7 @@ class Sort extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { intl: { formatMessage }, classes } = this.props;
         const { anchorEl, sort } = this.state;
         return (
             <div className={classes.root}>
@@ -68,25 +81,25 @@ class Sort extends Component {
                         onClick={() => this.handleSort('by Date', 1)}
                         className={(sort.by === 'by Date' && sort.value === 1) ? classes.active : ''}
                     >
-                        Sort by date <KeyboardArrowDownIcon />
+                        {formatMessage(messages.bydate)} <KeyboardArrowDownIcon />
                     </MenuItem>
                     <MenuItem
                         onClick={() => this.handleSort('by Date', -1)}
                         className={(sort.by === 'by Date' && sort.value === -1) ? classes.active : ''}
                     >
-                        Sort by date <KeyboardArrowUpIcon />
+                        {formatMessage(messages.bydate)} <KeyboardArrowUpIcon />
                     </MenuItem>
                     <MenuItem
                         onClick={() => this.handleSort('by Name', 1)}
                         className={(sort.by === 'by Name' && sort.value === 1) ? classes.active : ''}
                     >
-                        Sort by name <KeyboardArrowDownIcon />
+                        {formatMessage(messages.byname)} <KeyboardArrowDownIcon />
                     </MenuItem>
                     <MenuItem
                         onClick={() => this.handleSort('by Name', -1)}
                         className={(sort.by === 'by Name' && sort.value === -1) ? classes.active : ''}
                     >
-                        Sort by name <KeyboardArrowUpIcon />
+                        {formatMessage(messages.byname)} <KeyboardArrowUpIcon />
                     </MenuItem>
                 </Menu>
             </div>
@@ -94,4 +107,6 @@ class Sort extends Component {
     }
 }
 
-export default withStyles(styles)(Sort);
+Sort = withStyles(styles)(Sort);
+
+export default injectIntl(Sort);
