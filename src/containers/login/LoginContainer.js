@@ -17,13 +17,15 @@ class LoginContainer extends Component {
 
     componentDidMount() {
         if (this.props.auth.isAuthenticated) {
-            window.location.href = '/';
+            // window.location.href = '/';
+            this.props.history.push('/')
         }
     }
 
     componentWillReceiveProps(nextProps) {
         if(nextProps.auth.isAuthenticated) {
-            window.location.href = '/';
+            // window.location.href = '/';
+            this.props.history.push('/')
         }
         if(nextProps.errors) {
             this.setState({

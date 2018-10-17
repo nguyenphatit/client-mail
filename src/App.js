@@ -75,8 +75,8 @@ class App extends Component {
 						<Router history={history}>
 							<Switch>
 								{this.renderContent(routes)}
-								<Route path='/login' render={() => <LoginContainer />} />
-								<Route path='/signup' render={() => <SignupContainer />} />
+								<Route path='/login' render={({history}) => <LoginContainer history={history} />} />
+								<Route path='/signup' render={({history}) => <SignupContainer history={history} />} />
 								<Route path='' render={() => <NotFound />} />
 							</Switch>
 						</Router >

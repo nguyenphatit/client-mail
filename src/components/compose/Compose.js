@@ -67,7 +67,6 @@ class Compose extends Component {
 
     render() {
         const { intl: { formatMessage }, classes, errors } = this.props;
-        // console.log(errors)
         return (
             <div>
                 <form onSubmit={this.onSubmit}>

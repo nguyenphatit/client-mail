@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { injectIntl } from "react-intl";
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { List } from '@material-ui/core';
-import { injectIntl } from "react-intl";
 import './List.scss';
 
 class ListMail extends Component {

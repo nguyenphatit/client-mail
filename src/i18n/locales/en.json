@@ -6,14 +6,16 @@
   "compose.title": "Title",
   "compose.to": "To",
   "drafts": "Drafts",
-  "drafts.title": "This is Drafts Component",
   "inbox": "Inbox",
-  "inbox.title": "This is Inbox Component",
+  "inboxcontainer.messageContent": "No content",
   "login.password": "Password",
   "login.signup": "Registry now!",
   "login.title": "Log in",
+  "search.search": "Search",
   "sent": "Sent",
-  "spam.title": "This is Spam Component",
+  "sentcontainer.messageContent": "No content",
+  "sort.bydate": "Sort by date",
+  "sort.byname": "Sort by name",
   "trash": "Trash",
-  "trash.title": "This is Trash Component"
+  "trashcontainer.messageContent": "No content"
 }
