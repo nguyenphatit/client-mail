@@ -23,10 +23,14 @@ export const getAllMailInbox = () => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -41,10 +45,14 @@ export const getAllMailSent = () => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -59,10 +67,14 @@ export const getAllMailTrash = () => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -77,10 +89,14 @@ export const getMailInfo = id => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -95,10 +111,14 @@ export const deleteRestore = id => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -111,10 +131,14 @@ export const sendMail = data => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -129,9 +153,13 @@ export const readMail = id => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }

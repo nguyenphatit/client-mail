@@ -8,10 +8,14 @@ export const registerUser = (user, history) => dispatch => {
     axios.post(`${NODE_API}/api/users/register`, user)
         .then(res => window.location.href = '/login')
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -26,10 +30,14 @@ export const loginUser = user => dispatch => {
             authenticate();
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
 
@@ -57,9 +65,13 @@ export const authenticate = () => dispatch => {
             })
         })
         .catch(err => {
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
+            if (err.data) {
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            } else {
+                window.location.href = ''
+            }
         })
 }
