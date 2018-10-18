@@ -20,7 +20,7 @@ class MailContentContainer extends Component {
         this.props.deleteRestore(id)
         // window.location.href = '/sent';
         this.props.history.goBack();
-        console.log(this.props.history);
+        // console.log(this.props.history);
     }
 }
 
